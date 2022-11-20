@@ -12,18 +12,18 @@ let stageTitle,
     time = 1500,
     status = 'work';
 
-
 function setTime(newTime) {
     time = newTime * 60;
     countdown();
 }
 
 function countdown() {
-    minutes = parseInt(time / 60, 10);
+    minutes = Math.floor(time / 60);
     seconds = parseInt(time % 60, 10);
     minutes = minutes < 10 ? "0" + minutes : minutes;
     seconds = seconds < 10 ? "0" + seconds : seconds;
     displayTime.textContent = minutes + ":" + seconds;
+    document.title = displayTime.textContent + " - " + status;
 }
 
 function resetTimer() {
@@ -38,7 +38,7 @@ function resetTimer() {
     }
 }
 
-function startTimer(display) {
+function startTimer() {
     clearInterval(status); // Ensures only one instance of function is running
     timer = setInterval(function () {
         countdown();
@@ -112,4 +112,5 @@ function workBreak() {
     document.getElementById('start').onclick = workBreak;
 
 })();
+
 
