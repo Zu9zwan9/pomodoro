@@ -55,32 +55,13 @@
         </div>
     </div>
 </div>
-<!--<script>-->
-<!--    function bootstrapTabControl() {-->
-<!--        let i, items = $('.nav-link')-->
-<!--        // next-->
-<!--        $('#switch').on('click', function () {-->
-<!--            for (i = 0; i < items.length; i++) {-->
-<!--                if ($(items[i]).hasClass('active') == true) {-->
-<!--                    break;-->
-<!--                }-->
-<!--            }-->
-<!--            if (i < items.length - 1) {-->
-<!--                $(items[i]).removeClass('active');-->
-<!--                $(items[i + 1]).addClass('active');-->
-<!--            }-->
-<!--        });-->
-<!--    }-->
-<!--    bootstrapTabControl();-->
-
-
-<!--$('.btnNext').click(function(){-->
-<!--$('.nav-tabs > .active').next('li').find('a').trigger('click');-->
-<!--});-->
-<!--</script>-->
+<script type="text/javascript">
+    window.addEventListener('beforeunload', function (e) {
+        e.preventDefault();
+        e.returnValue = '';
+    });
+</script>
 <script src="script.js"></script>
-<!--    <audio id="beep" src="https://goo.gl/65cBl1"></audio>-->
-<!--    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>-->
 <script
         src="https://code.jquery.com/jquery-3.6.1.min.js"
         integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
