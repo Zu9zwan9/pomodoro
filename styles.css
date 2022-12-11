@@ -1,5 +1,7 @@
-html {
-
+html,
+body {
+    margin: 0;
+    padding: 0;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -8,11 +10,10 @@ html {
 }
 
 .container {
-    border-radius: 25%;
-    display: flex;
-    justify-content: center;
+    background-color: lightblue;
+    flex-direction: column;
     align-items: center;
-    background-color: deepskyblue;
+    height: 100vh;
 }
 
 
@@ -27,7 +28,6 @@ html {
 
 h1#displayTime.timer {
     font-size: 100px;
-
     margin: 0;
     color: white;
     text-align: center;
@@ -35,15 +35,13 @@ h1#displayTime.timer {
 
 .status {
     display: inline-block;
-    padding-top: 0px;
+    padding-top: 0;
     font-size: 25px;
     color: white;
 }
 
 .row {
     min-width: 340px
-
-
 }
 
 .nav-pills .nav-item .nav-link {
@@ -53,11 +51,10 @@ h1#displayTime.timer {
     color: #fff;
     border-radius: 20%;
     border: darkslateblue 5px solid;
-
 }
-.nav-link:hover {
-    background-color:  darkslateblue;
 
+.nav-link:hover {
+    background-color: darkslateblue;
     border-radius: 20%;
 }
 
@@ -65,8 +62,8 @@ h1#displayTime.timer {
     background-color: cornflowerblue;
     color: #fff;
 }
-.nav-item {
 
+.nav-item {
     margin: 0 10px;
 }
 
@@ -159,3 +156,54 @@ h1#displayTime.timer {
     margin: 0;
     padding: 45px;
 }
+
+
+
+
+.root ul li {
+    cursor: pointer;
+    position: relative;
+    padding: 12px 8px 12px 40px;
+    list-style-type: none;
+    background: #eee;
+    font-size: 18px;
+    transition: 0.2s;
+
+    /* make the list items unselectable */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Set all odd list items to a different color (zebra-stripes) */
+.root ul li:nth-child(odd) {
+    background: #f9f9f9;
+}
+
+/* Darker background-color on hover */
+.root ul li:hover {
+    background: #ddd;
+}
+
+/* When clicked on, add a background color and strike out text */
+.root ul li.checked {
+    background: #888;
+    color: #fff;
+    text-decoration: line-through;
+}
+
+/* Add a "checked" mark when clicked on */
+.root ul li.checked::before {
+    content: '';
+    position: absolute;
+    border-color: #fff;
+    border-style: solid;
+    border-width: 0 2px 2px 0;
+    top: 10px;
+    left: 16px;
+    transform: rotate(45deg);
+    height: 15px;
+    width: 7px;
+}
+

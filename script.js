@@ -9,17 +9,17 @@ let stageTitle,
     shortBreak = 5,
     longBreak = 15,
     timeOn = false,
-    time = 1500,
+    task,
     status = 'work';
 
 function setTime(newTime) {
-    time = newTime * 60;
+    task.time = newTime * 60;
     countdown();
 }
 
 function countdown() {
-    minutes = Math.floor(time / 60);
-    seconds = parseInt(time % 60, 10);
+    minutes = Math.floor(task.time / 60);
+    seconds = parseInt(task.time % 60, 10);
     minutes = minutes < 10 ? "0" + minutes : minutes;
     seconds = seconds < 10 ? "0" + seconds : seconds;
     displayTime.textContent = minutes + ":" + seconds;
@@ -40,10 +40,11 @@ function resetTimer() {
 
 function startTimer() {
     clearInterval(status); // Ensures only one instance of function is running
+    task = new Task(1500);
     timer = setInterval(function () {
         countdown();
-        if (time !== 0) {
-            time--;
+        if (task.time !== 0) {
+            task.time--;
         } else {
             switchMode();
         }
@@ -114,3 +115,9 @@ function workBreak() {
 })();
 
 
+class Task {
+    constructor(time) {
+        this.time = time;
+    }
+
+}
