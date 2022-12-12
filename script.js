@@ -9,17 +9,17 @@ let stageTitle,
     shortBreak = 5,
     longBreak = 15,
     timeOn = false,
-    task,
+    time = 1500,
     status = 'work';
 
 function setTime(newTime) {
-    task.time = newTime * 60;
+    time = newTime * 60;
     countdown();
 }
 
 function countdown() {
-    minutes = Math.floor(task.time / 60);
-    seconds = parseInt(task.time % 60, 10);
+    minutes = Math.floor(time / 60);
+    seconds = parseInt(time % 60, 10);
     minutes = minutes < 10 ? "0" + minutes : minutes;
     seconds = seconds < 10 ? "0" + seconds : seconds;
     displayTime.textContent = minutes + ":" + seconds;
@@ -34,17 +34,15 @@ function resetTimer() {
     }
     if (status === 'longBreak') {
         setTime(longBreak);
-
     }
 }
 
 function startTimer() {
     clearInterval(status); // Ensures only one instance of function is running
-    task = new Task(1500);
     timer = setInterval(function () {
         countdown();
-        if (task.time !== 0) {
-            task.time--;
+        if (time !== 0) {
+            time--;
         } else {
             switchMode();
         }
@@ -68,21 +66,21 @@ function switchMode() {
 
 }
 
-function switchTo(desired_type, current_type) {
-    if (desired_type === 'work') {
+function switchTo(newStatus, oldStatus) {
+    if (newStatus === 'work') {
         status = 'work';
         setTime(work);
-        stageTitle.classList.remove(current_type);
+        stageTitle.classList.remove(oldStatus);
         stageTitle.classList.add('work');
-    } else if (desired_type === 'shortBreak') {
+    } else if (newStatus === 'shortBreak') {
         status = 'shortBreak';
         setTime(shortBreak);
-        stageTitle.classList.remove(current_type);
+        stageTitle.classList.remove(oldStatus);
         stageTitle.classList.add('shortBreak');
-    } else if (desired_type === 'longBreak') {
+    } else if (newStatus === 'longBreak') {
         status = 'longBreak';
         setTime(longBreak);
-        stageTitle.classList.remove(current_type);
+        stageTitle.classList.remove(oldStatus);
         stageTitle.classList.add('longBreak');
     }
     displayStatus.innerHTML = status;
@@ -101,7 +99,6 @@ function workBreak() {
     }
 }
 
-
 (function () {
     stageTitle = document.getElementsByClassName('stage')[0];
     displayStatus = document.getElementsByClassName('status')[0];
@@ -113,11 +110,3 @@ function workBreak() {
     document.getElementById('start').onclick = workBreak;
 
 })();
-
-
-class Task {
-    constructor(time) {
-        this.time = time;
-    }
-
-}
