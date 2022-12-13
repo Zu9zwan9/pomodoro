@@ -205,3 +205,174 @@ h1#displayTime.timer {
     width: 7px;
 }
 
+/* Style the close button */
+/* todoapp*/
+button {
+    border: 1px solid rgb(105, 197, 255);
+    border-radius: 5px;
+    background-color: rgb(227, 248, 255);
+    color: rgb(105, 197, 255);
+    text-align: center;
+
+}
+
+input[type="text"] {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+#tasks {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+:checked + label {
+    text-decoration: line-through;
+    color: green;
+}
+
+/* Style the close button */
+
+
+.input-field {
+    position: relative;
+}
+
+.input-field > label {
+    font-size: 1.1rem;
+    height: 2rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(100% - 0.5rem);
+    padding-left: 0.5rem;
+    padding-right: auto;
+    font-weight: normal;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    color: rgba(255, 255, 255, 0);
+    transition: 0.3s;
+    cursor: text;
+}
+
+.input-field > label:focus-within {
+    transform-origin: 0 0;
+    transform: translateY(-1rem) scale(0.8);
+    color: white;
+    background-color: black;
+}
+
+#input--add {
+    width: calc(100% - 1rem);
+}
+
+.input {
+    height: 2rem;
+    font-family: "Arial", sans-serif;
+    margin: 0;
+    padding: 0 0.5rem;
+    font-size: 1.1rem;
+    color: white;
+    background-color: rgb(46, 46, 46);
+    border: none;
+    border-bottom: 1.5px solid rgba(255, 255, 255, 0.4);
+    transition: 0.3s;
+}
+
+.input:focus {
+    border-bottom: 3px solid white;
+    outline: none;
+    filter: brightness(0.7);
+}
+
+.input--todo {
+    border: 1px solid rgb(105, 197, 255);
+    border-radius: 5px;
+    background-color: rgb(227, 248, 255);
+    color: rgb(105, 197, 255);
+    text-align: center;
+}
+
+.input--todo:focus {
+    border-bottom: 3px solid rgb(3, 7, 206);
+    filter: brightness(0.7);
+}
+
+.button {
+    border: 1px solid rgb(105, 197, 255);
+    border-radius: 5px;
+    background-color: rgb(227, 248, 255);
+    color: rgb(105, 197, 255);
+    text-align: center;
+}
+
+.button:hover {
+    cursor: pointer;
+    filter: brightness(0.7);
+}
+
+.button--todo {
+    border-radius: 5px;
+    background-color: rgb(227, 248, 255);
+    color: rgb(105, 197, 255);
+    text-align: center;
+}
+.button--todo:hover {
+    background-color: rgb(227, 248, 255);
+    color: rgb(23, 160, 245);
+}
+.button--edit {
+    background-color: rgb(21, 43, 243);
+    color: rgb(227, 248, 255);
+}
+.button--edit:hover {
+    background-color: rgb(21, 43, 243);
+    border: 1px solid rgb(21, 43, 243);
+    color: rgb(227, 248, 255);
+}
+.button--save {
+    background-color: rgb(0, 122, 27);
+    border: 1px solid rgb(0, 133, 29);
+    color: rgb(227, 248, 255);
+}
+.button--delete {
+    background-color: rgb(212, 0, 0);
+    color: rgb(227, 248, 255);
+}
+.button--delete:hover {
+    background-color: rgb(173, 6, 23);
+    border: 1px solid rgb(154, 27, 39);
+}
+
+.todo-collection__item {
+    list-style-type: none;
+    margin: 0;
+    padding: 1rem 0;
+    font-size: 1.1rem;
+    display: grid;
+    grid-row-gap: 1rem;
+    grid-template-columns: 1fr auto auto;
+}
+
+.todo-collection__item__title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 0.5rem;
+    overflow-x: auto;
+}
+
+.hidden {
+    display: none;
+}
+

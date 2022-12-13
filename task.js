@@ -1,5 +1,6 @@
 class Task {
-    constructor(time, stageTitle, displayStatus, displayTime, displaySwitch, timer, minutes, seconds, timeOn, status) {
+    constructor(time, stageTitle, displayStatus, displayTime, displaySwitch, timer,
+                minutes, seconds, timeOn, status) {
         this.time = time;
         this.stageTitle = stageTitle;
         this.displayStatus = displayStatus;
@@ -10,5 +11,7 @@ class Task {
         this.seconds = seconds;
         this.timeOn = timeOn;
         this.status = status;
+
+
     }
 }

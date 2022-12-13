@@ -101,3 +101,94 @@ function workBreak() {
     document.getElementById('start').onclick = workBreak;
 
 })();
+
+
+// todoapp
+
+
+const form = document.querySelector(".task-form");
+const taskInput = document.querySelector("input");
+const taskList = document.querySelector(".taskList");
+
+form.addEventListener("submit", addTodo);
+
+function addTodo(e) {
+    if (taskInput.value === "") {
+        // shake form to indicate that the user must input something
+        form.classList.toggle("shake-horizontal");
+        setTimeout(() => {
+            form.classList.toggle("shake-horizontal");
+        }, 500);
+    } else {
+        // create elements
+        const li = document.createElement("li");
+        const todoTitle = document.createElement("span");
+        const editableInput = document.createElement("input");
+        const editButton = document.createElement("button");
+        const saveButton = document.createElement("button");
+        const deleteButton = document.createElement("button");
+
+        li.classList.add("todo-collection__item");
+
+        todoTitle.classList.add("taskList__item__title");
+        todoTitle.innerText = taskInput.value;
+
+        editableInput.classList.add("input");
+        editableInput.classList.add("input--todo");
+        editableInput.classList.add("hidden");
+        editableInput.type = "text";
+        editableInput.value = taskInput.value;
+
+        editButton.classList.add("button");
+        editButton.classList.add("button--todo");
+        editButton.classList.add("button--edit");
+        editButton.innerText = "Edit";
+
+        saveButton.classList.add("button");
+        saveButton.classList.add("button--todo");
+        saveButton.classList.add("button--save");
+        saveButton.classList.add("hidden");
+        saveButton.innerText = "Save";
+
+        deleteButton.classList.add("button");
+        deleteButton.classList.add("button--todo");
+        deleteButton.classList.add("button--delete");
+        deleteButton.innerText = "Delete";
+
+        // add elements to todo list
+        li.appendChild(todoTitle);
+        li.appendChild(editableInput);
+        li.appendChild(editButton);
+        li.appendChild(saveButton);
+        li.appendChild(deleteButton);
+        taskList.appendChild(li);
+
+        function toggleTodoEditForm() {
+            todoTitle.classList.toggle("hidden");
+            editableInput.classList.toggle("hidden");
+            editButton.classList.toggle("hidden");
+            saveButton.classList.toggle("hidden");
+        }
+        // button event listeners
+        editButton.addEventListener("click", () => {
+            toggleTodoEditForm();
+            editableInput.focus();
+        });
+
+        saveButton.addEventListener("click", () => {
+            todoTitle.innerText = editableInput.value;
+            toggleTodoEditForm();
+        });
+
+        deleteButton.addEventListener("click", () => {
+            setTimeout(() => {
+                taskList.removeChild(li);
+            }, 100);
+        });
+    }
+    // clear input
+    taskInput.value = "";
+
+    e.preventDefault();
+}
+
